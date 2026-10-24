@@ -1,0 +1,30 @@
+{
+  "name": "appimage-packaging",
+  "displayName": "AppImage Packaging",
+  "version": "1.0.0",
+  "description": "Package any Linux application as a self-contained AppImage that runs on every distribution: bundle its libraries, GTK/Qt runtime data and glibc, build and publish it from GitHub Actions, prove it in stock containers, and fix \"works on my machine\" failures.",
+  "author": {
+    "name": "AppImage Community",
+    "url": "https://github.com/AppImageCommunity"
+  },
+  "homepage": "https://github.com/AppImageCommunity/AppImagePackaging",
+  "repository": "https://github.com/AppImageCommunity/AppImagePackaging",
+  "documentationUrl": "https://github.com/AppImageCommunity/AppImagePackaging#readme",
+  "supportUrl": "https://github.com/AppImageCommunity/AppImagePackaging/issues",
+  "license": "MIT",
+  "icon": "./.claude-plugin/icon.png",
+  "keywords": [
+    "appimage",
+    "linux",
+    "packaging",
+    "distribution",
+    "portable",
+    "bundle",
+    "github-actions",
+    "release",
+    "gtk",
+    "qt",
+    "electron",
+    "desktop-app"
+  ]
+}

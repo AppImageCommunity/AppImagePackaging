@@ -1,0 +1,15 @@
+{
+  "name": "appimage-packaging",
+  "description": "Package Linux applications as self-contained AppImages",
+  "owner": {
+    "name": "AppImage Community",
+    "url": "https://github.com/AppImageCommunity"
+  },
+  "plugins": [
+    {
+      "name": "appimage-packaging",
+      "source": "./",
+      "description": "Package any Linux application as a self-contained AppImage that runs on every distribution"
+    }
+  ]
+}
