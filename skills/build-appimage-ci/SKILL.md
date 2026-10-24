@@ -356,6 +356,18 @@ Details that matter:
 - The artifacts of a called workflow live in the caller's run, so
   `download-artifact` by name works without `run-id` juggling.
 
+## Lint for the catalog in the same job
+
+If the AppImage is (or may one day be) submitted to AppImageHub, the
+community catalog at appimage.github.io, run its rules right after
+`appimagetool`: one root desktop file that passes `desktop-file-validate`
+with `Icon=` and `Categories=` exactly once, a PNG `.DirIcon`, AppStream
+metainfo that passes `appstreamcli validate-tree`, no newer glibc symbols than
+the oldest supported Ubuntu LTS has (unless glibc is bundled), an
+architecture in the file name and one x86_64 AppImage per release. The
+publish-to-appimagehub skill has the check script and the reasons; a failing
+submission costs a release cycle, a failing CI step costs a minute.
+
 ## Harden the workflow itself
 
 A few general GitHub Actions habits worth applying here, independent of

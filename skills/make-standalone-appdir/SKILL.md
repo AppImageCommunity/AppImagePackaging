@@ -444,7 +444,9 @@ Before shipping, run the checks in
 [references/verification-checklist.md](references/verification-checklist.md):
 binary and loader present, RPATH set, loaders.cache relative, schemas compiled,
 icon theme and gresource present, and a headless start. The portability test
-proper is the verify-appimage-portability skill.
+proper is the verify-appimage-portability skill; the AppDir rules of the
+AppImageHub catalog (root desktop file, `.DirIcon`, AppStream metainfo,
+excludelist libraries) are in publish-to-appimagehub.
 
 ## Reference: Why Each Env Var Matters
 

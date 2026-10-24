@@ -2,11 +2,12 @@
 
 **AppImage Packaging** is a Claude plugin that turns a Linux desktop application
 into a single self-contained [AppImage](https://appimage.org) file and keeps it
-that way in CI. Its four skills cover assembling the AppDir (every library down
+that way in CI. Its five skills cover assembling the AppDir (every library down
 to glibc, GTK and Qt runtime data, icons, loaders), building and publishing the
 AppImage from GitHub Actions (continuous and tagged releases, zsync updates),
 verifying that it runs on distributions it was not built on, and troubleshooting
-an AppImage that fails only outside the build machine. Everything in it was
+an AppImage that fails only outside the build machine, and getting it listed
+in the AppImageHub catalog. Everything in it was
 distilled from real pipelines, with the failures and their fixes written down.
 
 Ask Claude things like:
@@ -16,6 +17,7 @@ Ask Claude things like:
 - "The AppImage starts on Ubuntu but crashes on Fedora. Why?"
 - "Prove in CI that the AppImage runs on a stock Debian container."
 - "Our app runs its helpers in bubblewrap; previews are blank from the AppImage."
+- "Submit our AppImage to AppImageHub." or "The AppImageHub test failed with error-glibc-too-new."
 
 ## Install
 
@@ -61,6 +63,12 @@ npx skills add AppImageCommunity/AppImagePackaging
   an AppImage that fails, crashes or hangs only outside the build machine:
   dynamic-linker errors, strace ENOENT tracing, toolkit debug variables,
   hardcoded paths, glibc symbol versions on musl.
+- [publish-to-appimagehub](skills/publish-to-appimagehub/SKILL.md): listing
+  the AppImage in the AppImageHub catalog (appimage.github.io): what its
+  automated test does and requires (SquashFS, oldest Ubuntu LTS, X11, offline,
+  30 seconds to a window, `desktop-file-validate`, `appstreamcli`, light theme,
+  English), naming the entry, channels, a pre-submission check for CI, and
+  what each `error-*` label means.
 
 The skills cross-reference each other and are plain Markdown; nothing here runs
 code on its own. Claude reads a skill when a task matches its description and

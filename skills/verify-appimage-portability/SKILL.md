@@ -325,6 +325,19 @@ If you run several such containers on one machine with `--network host`
 (e.g. to reach a local proxy), they share the abstract-socket namespace:
 give each its own Xvfb display number or the second one fails to start.
 
+## Match the catalog's conditions once
+
+AppImageHub (appimage.github.io) tests every submitted AppImage the same
+way this skill does, with fixed conditions: a container of the oldest Ubuntu
+LTS still in standard support, nothing installed beyond test tooling, X11
+only, the C locale, no dark-mode preference, and **no network** (`firejail
+--net=none`); the main window must be visible within 30 seconds and show
+content, not an error dialog. Add one matrix entry with exactly those
+conditions (`ubuntu:<oldest LTS>`, `docker run --network none`, `LANG=C`) so
+that a catalog submission passes first time; the publish-to-appimagehub skill
+lists the static checks (`desktop-file-validate`, `appstreamcli`, `.DirIcon`,
+file naming) to run next to it.
+
 ## Publish the screenshot in the Release
 
 A screenshot sitting only in a CI artifact is easy to miss - artifacts
